@@ -1,6 +1,19 @@
 # install xcode cmdline tools
 # xcode-select --install
 
+# Copy Configs
+cp -r config/alacritty/ ~/.config
+cp -r config/nvim/ ~/.config
+
+# After copying this chmod -x ./plugins
+cp -r config/sketchybar/ ~/.config/
+sudo chmod -R +x ~/.config/sketchybar/plugins
+
+cp -r config/yabai/ ~/.config/
+cp -r config/zellij/ ~/.config/
+cp -r config/skhd/ ~/.config/
+cp config/karabiner.edn ~/.config/
+
 # install brew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 (echo; echo 'eval "$(/usr/local/bin/brew shellenv)"') >> /Users/$(whoami)/.zprofile
@@ -35,11 +48,16 @@ brew install jesseduffield/lazygit/lazygit
 
 # window manager
 brew install koekeishiya/formulae/yabai
-yabai --start-service
 
 # shortcuts for yabai
 brew install koekeishiya/formulae/skhd
-skhd --start-service
+
+# Menubar looks better
+brew tap FelixKratz/formulae
+brew install sketchybar
+
+# Alacritty Dependency
+brew install scdoc
 
 # browser
 brew install --cask firefox
@@ -94,8 +112,14 @@ cp -r config/nvim/ ~/.config/nvim
 
 # After copying this chmod -x ./plugins
 cp -r config/sketchybar/ ~/.config/sketchybar/
+sudo chmod -R +x ~/.config/sketchybar/plugins
 
 cp -r config/yabai/ ~/.config/yabai/
 cp -r config/zellij/ ~/.config/zellij/
 cp -r config/skhd/ ~/.config/skhd/
 cp config/karabiner.edn ~/.config/
+
+# RICE
+yabai --start-service
+skhd --start-service
+brew services start sketchybar
