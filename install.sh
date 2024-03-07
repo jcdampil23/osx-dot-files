@@ -1,15 +1,15 @@
 # Copy Configs
-cp -r config/alacritty/ ~/.config
-cp -r config/nvim/ ~/.config
+cp -r config/alacritty/ ~/.config/alacritty
+cp -r config/nvim/ ~/.config/nvim
 
 # After copying this chmod -x ./plugins
-cp -r config/sketchybar/ ~/.config/
+cp -r config/sketchybar/ ~/.config/sketchybar
 sudo chmod -R +x ~/.config/sketchybar/plugins
 
-cp -r config/yabai/ ~/.config/
-cp -r config/zellij/ ~/.config/
-cp -r config/skhd/ ~/.config/
-cp config/karabiner.edn ~/.config/
+cp -r config/yabai/ ~/.config/yabai
+cp -r config/zellij/ ~/.config/zellij
+cp -r config/skhd/ ~/.config/skhd
+cp config/karabiner.edn ~/.config
 
 # install brew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
