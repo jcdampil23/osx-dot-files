@@ -1,0 +1,32 @@
+layout {
+    tab {
+        pane
+    }
+    default_tab_template {
+
+        pane size=1 borderless=true {
+
+            plugin location="file:/Users/jancarldampil/.config/zellij/plugins/zjstatus.wasm" {
+                format_left  "{tabs}"
+                format_right "#[fg=#181825,bg=#b1bbfa]{datetime}"
+                format_space "#[bg=#181825]"
+                hide_frame_for_single_pane "false"
+                tab_normal        "#[fg=#181825,bg=#4C4C59]#[fg=#181825,bg=#4C4C59] {name} #[fg=#4C4C59,bg=#181825]"
+                tab_active        "#[fg=#181825,bg=blue,bold] {name} #[fg=blue,bg=#181825]"
+                datetime          "#[fg=#181825,bg=#b1bbfa,bold] {format} "
+                datetime_format   "%A, %d %b %Y %H:%M"
+                datetime_timezone "Asia/Manila"
+            }
+
+        }
+
+        children
+
+        pane size=2 borderless=true {
+            plugin location="zellij:status-bar"
+        }
+
+    }
+
+}
+

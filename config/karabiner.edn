@@ -1,0 +1,111 @@
+;; !  | means mandatory
+    ;; #  | means optional
+    ;; C  | left_command
+    ;; T  | left_control
+    ;; O  | left_option
+    ;; S  | left_shift
+    ;; F  | fn
+    ;; Q  | right_command
+    ;; W  | right_control
+    ;; E  | right_option
+    ;; R  | right_shift
+    ;; P  | caps_lock
+    ;; !! | mandatory command + control + optional + shift (hyper)
+    ;; ## | optional any
+{
+ :templates {
+             :open   "open \"%s\""
+             }
+ :applications {
+                :terminal[
+                          "^org\\.alacritty"
+                          ]
+                :browser[
+                          "^com\\.kagi\\.kagimacOS"
+                         "^org\\.mozilla\\.firefox"
+                         ]
+                }
+ :main
+ [
+  {
+   :des "Alacritty Layer"
+   :rules [
+
+           [:!Tcaps_lock :grave_accent_and_tilde]
+           [:!Ccaps_lock :!Sgrave_accent_and_tilde]
+
+           [:caps_lock ["caps-layer" 1] nil {:afterup ["caps-layer" 0]}]
+           :caps-layer
+           [:n :!TSn]
+           [:m :!TSm]
+           [:u :!S7]
+
+           :terminal
+           [:!C1 [:!Tt :1]]
+           [:!C2 [:!Tt :2]]
+           [:!C3 [:!Tt :3]]
+           [:!C4 [:!Tt :4]]
+           [:!C5 [:!Tt :5]]
+           [:!C6 [:!Tt :6]]
+           [:!C7 [:!Tt :7]]
+           [:!C8 [:!Tt :8]]
+           [:!C9 [:!Tt :9]]
+           [:!Ct [:!Tt :n]]
+           [:!Cr [:!Tt :r]]
+           [:!Ce [:!Tt :x]]
+           ;; Pane
+           [:!Cp [:!Tp :r]]
+           [:!Cd [:!Tp :d]]
+           [:!Cx [:!Tp :x]]
+           [:!Cc [:!Tp :c]]
+
+           [:!Cj :!Oj]
+           [:!Ck :!Ok]
+           [:!Ch :!Oh]
+           [:!Cl :!Ol]
+
+           [:condi :terminal :caps-layer]
+           ;; Tabs
+           ;;[:h [:!Tn :h :escape]]
+           ;;[:l [:!Tn :l :escape]]
+           ;;[:j [:!Tn :j :escape]]
+           ;;[:k [:!Tn :k :escape]]
+
+           :browser
+           [:!Tj :!COright_arrow]
+           [:!Tk :!COleft_arrow]
+           [:!Topen_bracket :!Copen_bracket]
+           [:!Tclose_bracket :!Cclose_bracket]
+           [:!Tt :!Ct]
+           [:!Tl :!Cl]
+           [:!Tw :!Cw]
+           [:!Tf :f6]
+           ]
+
+   }
+  {
+   :des "Launch Layer"
+   :rules [
+           ]
+   }
+  {
+   :des "Command Layer"
+   :rules [
+           :caps-layer
+           [:##j [:!TSj ]]
+           [:##k [:!TSk]]
+           [:##l [:!TSl]]
+           [:##h [:!TSh]]
+           ] 
+   }
+  {
+   :des "Arrow Keys"
+   :rules [
+           [:##right_option :##left_arrow]
+           [:##application :##down_arrow]
+           [:##right_control :##right_arrow]
+           [:##right_shift :##right_shift nil {:alone :##up_arrow}]
+           ]
+   }
+  ]
+ }

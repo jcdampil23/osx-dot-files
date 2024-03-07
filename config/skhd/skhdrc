@@ -1,0 +1,7 @@
+ctrl+shift - j : yabai -m window --focus south
+ctrl+shift - k : yabai -m window --focus north
+ctrl+shift - h : yabai -m window --focus west
+ctrl+shift - l : yabai -m window --focus east 
+
+ctrl+shift - n : SwitchAudioSource -n
+ctrl+shift - m : SwitchAudioSource -m toggle -t input
