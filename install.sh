@@ -1,31 +1,45 @@
 # install xcode cmdline tools
-xcode-select --install
+# xcode-select --install
 
 # install brew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+(echo; echo 'eval "$(/usr/local/bin/brew shellenv)"') >> /Users/$(whoami)/.zprofile
+
+eval "$(/usr/local/bin/brew shellenv)"
 
 # Brew dependencies
+
 # you know it
 brew install neovim
+
 # just in case
 brew install make
+
 # find but better
 brew install fd
+
 # Fuzzy Finder
 brew install fzf
+
 # Cat but better
 brew install bat
+
 # Cmd JSON processor
 brew install jq
 
 # audio switcher in terminal
 brew install switchaudio-osx
+
 # git ui in terminal
 brew install jesseduffield/lazygit/lazygit
+
 # window manager
 brew install koekeishiya/formulae/yabai
+yabai --start-service
+
 # shortcuts for yabai
 brew install koekeishiya/formulae/skhd
+skhd --start-service
 
 # browser
 brew install --cask firefox
@@ -34,6 +48,7 @@ brew install --cask firefox
 brew install --cask karabiner-elements
 # easier karabiner elements easier config
 brew install yqrashawn/goku/goku
+brew services start yqrashawn/goku/goku
 
 # install nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
@@ -45,6 +60,7 @@ brew install go
 
 # install Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+source "$HOME/.cargo/env"
 # update rust
 rustup override set stable
 rustup update stable
@@ -70,6 +86,8 @@ brew install htop
 brew tap homebrew/cask-fonts
 brew install --cask font-fira-mono-nerd-font
 
+# Create .config folder
+mkdir ~/.config
 # Copy Configs
 cp -r config/alacritty/ ~/.config/alacritty
 cp -r config/nvim/ ~/.config/nvim
