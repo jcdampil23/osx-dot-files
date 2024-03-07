@@ -1,6 +1,3 @@
-# install xcode cmdline tools
-# xcode-select --install
-
 # Copy Configs
 cp -r config/alacritty/ ~/.config
 cp -r config/nvim/ ~/.config
@@ -104,22 +101,10 @@ brew install htop
 brew tap homebrew/cask-fonts
 brew install --cask font-fira-mono-nerd-font
 
-# Create .config folder
-mkdir ~/.config
-# Copy Configs
-cp -r config/alacritty/ ~/.config/alacritty
-cp -r config/nvim/ ~/.config/nvim
-
-# After copying this chmod -x ./plugins
-cp -r config/sketchybar/ ~/.config/sketchybar/
-sudo chmod -R +x ~/.config/sketchybar/plugins
-
-cp -r config/yabai/ ~/.config/yabai/
-cp -r config/zellij/ ~/.config/zellij/
-cp -r config/skhd/ ~/.config/skhd/
-cp config/karabiner.edn ~/.config/
 
 # RICE
 yabai --start-service
 skhd --start-service
 brew services start sketchybar
+
+goku
